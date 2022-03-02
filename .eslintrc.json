@@ -3,12 +3,57 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["google"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:node/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {}
+  "plugins": [
+    "node",
+    "import",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts"]
+      }
+    },
+    "node": {
+      "tryExtensions": [".js", ".ts"]
+    }
+  },
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/quotes": 0,
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/array-type": [
+      "warn",
+      {
+        "default": "array-simple",
+        "readonly": "array-simple"
+      }
+    ],
+    "curly": ["error", "all"],
+    "no-case-declarations": 0,
+    "no-await-in-loop": 0,
+    "import/extensions": ["error", "ignorePackages", {
+      "ts": "never"
+    }],
+    "promise/catch-or-return": 0,
+    "node/no-unsupported-features/es-syntax": 0,
+    "node/no-unpublished-import": 0,
+    "node/no-unpublished-require": 0,
+    "eol-last": "error"
+  }
 }

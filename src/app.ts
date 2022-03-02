@@ -24,7 +24,7 @@ Promise.all([
   //   ssl: true,
   // }),
 ]).then(() => {
-  let server = new InversifyExpressServer(container);
+  const server = new InversifyExpressServer(container);
 
   server.setConfig((theApp) => {
     theApp.use(
@@ -36,7 +36,7 @@ Promise.all([
     theApp.use(errorCatchMiddleware);
   });
 
-  let app = server.build();
+  const app = server.build();
   app.listen(process.env.PORT);
   console.log(`Server started on port ${process.env.PORT} :)`);
 });
