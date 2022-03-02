@@ -1,9 +1,12 @@
 import { unmanaged } from 'inversify';
 import { model, Schema, Document, Model, SchemaDefinition, FilterQuery } from 'mongoose';
+import { LoggerFactory } from '../../logger';
+import { Logger } from 'winston';
 
 export class BaseRepository<TEntity, TModel extends Document> {
   private readonly _name: string;
   protected Model: Model<TModel>;
+  private logger: Logger;
 
   public constructor(
     @unmanaged() name: string,
@@ -12,6 +15,7 @@ export class BaseRepository<TEntity, TModel extends Document> {
     this._name = name;
     const schema = new Schema(schemaDefinition, { collection: this._name });
     this.Model = model<TModel>(this._name, schema);
+    this.logger = LoggerFactory.getLogger(this._name);
   }
 
   public async findOneByFilters(
@@ -65,6 +69,7 @@ export class BaseRepository<TEntity, TModel extends Document> {
         if (err) {
           return reject(err);
         }
+        this.logger.info(`Successfully created new ${this._name} instance`);
         resolve(res);
       });
     });

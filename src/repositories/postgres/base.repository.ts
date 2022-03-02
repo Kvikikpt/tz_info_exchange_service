@@ -15,11 +15,7 @@ export abstract class BaseRepository<
 > extends AbstractRepository<Entity> {
   protected abstract getEntity(): ObjectType<Entity>;
 
-  public async getRepository(): Promise<Repository<Entity>> {
-    if (this.manager) {
-      return this.manager.getRepository(this.getEntity());
-    }
-
+  public getRepository(): Repository<Entity> {
     return getConnection().getRepository(this.getEntity());
   }
 }

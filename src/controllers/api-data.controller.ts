@@ -6,6 +6,7 @@ import {
   requestBody,
   response,
 } from 'inversify-express-utils';
+// eslint-disable-next-line node/no-extraneous-import
 import { Response } from 'express';
 import { API_DATA_PREFIX, TYPES } from '../constants';
 import {
@@ -14,18 +15,13 @@ import {
   updateDataValidator,
 } from '../validators';
 import { inject } from 'inversify';
-import { DataRepository } from '../repositories/mongo';
 import { DataService } from '../services';
-import { HttpError } from '../errors';
 import { HttpStatusCode } from '../types';
 import { mapData, mapDataCredentials } from '../mappers';
 import { DataCredentialsResponse, DataMessageResponse } from '../responses';
 
 @controller(`${API_DATA_PREFIX}`)
 export class ApiDataController {
-  @inject(TYPES.DataRepository)
-  private readonly dataRepository!: DataRepository;
-
   @inject(TYPES.DataService)
   private readonly dataService!: DataService;
 
@@ -55,11 +51,7 @@ export class ApiDataController {
   public async getByShareCode(
     @requestParam('shareCode') shareCode: string
   ): Promise<DataMessageResponse> {
-    const foundData = await this.dataRepository.findOneByFilters({ shareCode });
-    if (!foundData) {
-      throw new HttpError('Not found data by shareCode', HttpStatusCode.NotFound);
-    }
-    return mapData(foundData);
+    return mapData(await this.dataService.findDataByShareCode(shareCode));
   }
 
   @httpPost('/delete')

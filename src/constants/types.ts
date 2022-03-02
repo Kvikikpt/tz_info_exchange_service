@@ -1,6 +1,7 @@
 export const TYPES = {
-  ClearCodeRepository: Symbol.for('ClearCodeRepository'),
   ClearCodeService: Symbol.for('ClearCodeService'),
-  DataRepository: Symbol.for('DataRepository'),
   DataService: Symbol.for('DataService'),
+  ClearCodeRepository: Symbol.for('ClearCodeRepository'),
+  DataRepository: Symbol.for('DataRepository'),
+  DeletionLogsRepository: Symbol.for('DeletionLogsRepository'),
 };

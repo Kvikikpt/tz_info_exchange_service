@@ -8,7 +8,6 @@ import { container } from './ioc/containter';
 import { errorCatchMiddleware } from './middlewares';
 // import { createConnection } from 'typeorm';
 
-setTimeout(() => {}, 1000);
 if (!process.env.MONGO_URL) {
   throw new Error('Invalid env config, required: mongodb_url');
 }

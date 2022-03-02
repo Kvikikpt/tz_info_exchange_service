@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-extraneous-import
 import type { NextFunction, Request, Response } from 'express';
 import { HttpError } from '../errors';
 import { ErrorCodes, HttpStatusCode } from '../types';
