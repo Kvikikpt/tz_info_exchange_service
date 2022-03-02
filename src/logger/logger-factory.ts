@@ -1,27 +1,15 @@
-import { inspect } from 'util';
-
 import {
+  Container,
   format,
   Logform,
-  transports,
-  Container,
   Logger as WinstonLogger,
   LoggerOptions,
+  transports,
 } from 'winston';
 
-const textFormat = format.printf(
-  ({ level, message, label, timestamp, stack, metadata }) => {
-    let msg = `${timestamp} [${label}] ${level}: ${message}`;
-    if (metadata && Object.keys(metadata).length > 0) {
-      msg = `${msg} ${inspect(metadata, { depth: 5, colors: true })}`;
-    }
-    if (stack) {
-      msg = `${msg}\nstack: ${stack}`;
-    }
-
-    return msg;
-  }
-);
+const textFormat = format.printf(({ level, message }) => {
+  return `[${new Date()}]${level}: ${message}`;
+});
 
 const createNewLogger = (format: Logform.Format): LoggerOptions => {
   return {
