@@ -1,4 +1,6 @@
+const old_env = process.env;
 import 'dotenv/config';
+process.env = { ...process.env, ...old_env };
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import * as bodyParser from 'body-parser';
