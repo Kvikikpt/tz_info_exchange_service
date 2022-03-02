@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc --noEmit",
-    "build": "rm -rf ./dist/* && tsc",
+    "build": "rm -rf ./dist/* && tsc && node dist/app.js",
     "install-start": "npm install --no-audit --no-fund --no-save && npm run start",
     "start": "npm run build && node dist/app.js"
   },
