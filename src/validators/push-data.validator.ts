@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import { DateTime } from 'luxon';
 
 export const pushDataValidator = yup.object({
-  data: yup.string().required().trim(),
+  data: yup.string().required(),
   accessTimesCount: yup.number().required(),
   expirationTime: yup
     .string()
