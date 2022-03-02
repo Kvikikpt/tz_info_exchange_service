@@ -1,5 +1,6 @@
 const old_env = process.env;
 import 'dotenv/config';
+console.log(process.env);
 process.env = { ...process.env, ...old_env };
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
