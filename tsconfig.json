@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2021",
+    "lib": [
+      "es7",
+      "dom"
+    ],
+    "outDir": "dist",
+    "incremental": true,
+    "noImplicitAny": false,
+    "noImplicitOverride": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "types": ["reflect-metadata"],
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "typeRoots": ["src/typings", "node_modules/@types"],
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "exclude": ["node_modules", "dist"]
+}

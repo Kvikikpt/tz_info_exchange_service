@@ -1,0 +1,53 @@
+{
+  "name": "tz_info_exchange_service",
+  "version": "1.0.0",
+  "description": "Тз сервис безопасного обмена информацией",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc --noEmit",
+    "build": "rm -rf ./dist/* && tsc",
+    "install-start": "npm install --no-audit --no-fund --no-save && npm run start",
+    "start": "npm run build && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kvikikpt/tz_info_exchange_service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kvikikpt/tz_info_exchange_service/issues"
+  },
+  "homepage": "https://github.com/Kvikikpt/tz_info_exchange_service#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/luxon": "^2.0.9",
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^8.10.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "dotenv": "^16.0.0",
+    "inversify": "^6.0.1",
+    "inversify-binding-decorators": "^4.0.0",
+    "inversify-express-utils": "^6.4.3",
+    "inversify-logger-middleware": "^3.1.0",
+    "luxon": "^2.3.1",
+    "mongoose": "^6.2.4",
+    "pg": "^8.7.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.44",
+    "yup": "^0.32.11"
+  }
+}
